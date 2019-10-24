@@ -3,56 +3,24 @@ package com.example.rocketapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends AppCompatActivity {
-    private TextView showRocketName;
-    private Button btnLeft;
-    private Button btnRight;
-    private Button calculate;
-    private EditText inputMass;
-    private EditText inputArea;
-    private EditText inputImpulse;
-    private EditText inputThrust;
-    private String[] displayRocket = new String[4];
-    private int a = 0;
+    private MaterialButton calculate;
+    private TextInputEditText inputName;
+    private EditText inputMass, inputArea, inputThrust, inputImpulse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         idAssign();
-        showRocketName.setText(displayRocket[0]);
-        btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                a--;
-                if (a < 0) {
-                    a = 3;
-                    showRocketName.setText(displayRocket[a]);
-                }
-                if (a >= 0) {
-                    showRocketName.setText(displayRocket[a]);
-                }
-            }
-        });
-        btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                a++;
-                if (a > 3) {
-                    a = 0;
-                    showRocketName.setText(displayRocket[a]);
-                } else {
-                    showRocketName.setText(displayRocket[a]);
-                }
-            }
-        });
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,18 +30,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void idAssign() {
-        displayRocket[0] = "Custom";
-        displayRocket[1] = "Test 1";
-        displayRocket[2] = "Test 2";
-        displayRocket[3] = "Test 3";
-        showRocketName = findViewById(R.id.rocketName);
-        btnLeft = findViewById(R.id.btnLeft);
-        btnRight = findViewById(R.id.btnRight);
+        inputName = findViewById(R.id.name_edit_text);
         inputMass = findViewById(R.id.inputMass);
         inputArea = findViewById(R.id.inputArea);
         inputImpulse = findViewById(R.id.inputImpulse);
         inputThrust = findViewById(R.id.inputThrust);
-        calculate = findViewById(R.id.btnCalculate);
+        calculate = findViewById(R.id.button);
     }
 
     private void calculate() {
@@ -95,16 +57,10 @@ public class MainActivity extends AppCompatActivity {
             double qa = Math.sqrt(mass * 9.8 / k);
             double qb = Math.sqrt(9.8 * k / mass);
             //double ta = Math.atan(v/qa)/qb;
-            double sumTime = t;
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("altitude", altitude);
             intent.putExtra("velocity", v);
-            intent.putExtra("time", sumTime);
-            Bundle bundle = new Bundle();
-            bundle.putDouble("altitude", altitude);
-            bundle.putDouble("velocity", v);
-            bundle.putDouble("t", sumTime);
-            intent.putExtras(bundle);
+            intent.putExtra("time", t);
             startActivity(intent);
         }
     }

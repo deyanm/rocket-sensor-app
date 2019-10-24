@@ -8,41 +8,40 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+
 public class SecondActivity extends AppCompatActivity {
-    private Button back;
+    private MaterialButton back;
     private TextView altitude;
     private TextView velocity;
     private TextView time;
-    private double holder1;
-    private double holder2;
-    private double holder3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sceound);
+        setContentView(R.layout.activity_second);
         back = findViewById(R.id.btnBack);
         altitude = findViewById(R.id.altitude);
         velocity = findViewById(R.id.velocity);
         time = findViewById(R.id.time);
+        double alt = 0, vel = 0, t = 0;
 
-        Bundle bundle = getIntent().getExtras();
+        if (getIntent().getExtras() != null) {
+            Bundle bundle = getIntent().getExtras();
+            alt = bundle.getDouble("altitude");
+            vel = bundle.getDouble("velocity");
+            t = bundle.getDouble("time");
+        }
 
-        holder1 = bundle.getDouble("altitude");
-        holder2 = bundle.getDouble("velocity");
-        holder3 = bundle.getDouble("t");
-
-        altitude.setText(String.valueOf(Math.round(holder1)));
-        velocity.setText(String.valueOf(Math.round(holder2)));
-        time.setText(String.valueOf((holder3)));
+        altitude.setText(String.valueOf(Math.round(alt)));
+        velocity.setText(String.valueOf(Math.round(vel)));
+        time.setText(String.valueOf((t)));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(SecondActivity.this, MainActivity.class));
             }
         });
-        //TODO MAKE PASS THE RESULTS
     }
 }
