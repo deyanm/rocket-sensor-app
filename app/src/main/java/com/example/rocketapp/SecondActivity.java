@@ -15,6 +15,7 @@ public class SecondActivity extends AppCompatActivity {
     private TextView altitude;
     private TextView velocity;
     private TextView time;
+    private TextView speedv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +25,23 @@ public class SecondActivity extends AppCompatActivity {
         altitude = findViewById(R.id.altitude);
         velocity = findViewById(R.id.velocity);
         time = findViewById(R.id.time);
-        double alt = 0, vel = 0, t = 0;
+        speedv = findViewById(R.id.speed);
+        double alt = 0, vel = 0, t = 0,speed = 0;
 
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             alt = bundle.getDouble("altitude");
             vel = bundle.getDouble("velocity");
             t = bundle.getDouble("time");
-        }
+            speed = bundle.getDouble("speed");
 
-        altitude.setText(String.valueOf(Math.round(alt)));
-        velocity.setText(String.valueOf(Math.round(vel)));
-        time.setText(String.valueOf((t)));
+        }
+        String roundDouble = String.format("%.2f",t);
+
+        altitude.setText(String.valueOf(Math.round(alt))+" Meters");
+        velocity.setText(String.valueOf(Math.round(vel))+" M/s on vector");
+        time.setText(String.valueOf((roundDouble))+" Seconds");
+        speedv.setText(String.valueOf(Math.round(speed)+"M/s"));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

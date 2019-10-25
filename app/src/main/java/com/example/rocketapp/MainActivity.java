@@ -56,11 +56,14 @@ public class MainActivity extends AppCompatActivity {
             double altitude = (yb + yc);
             double qa = Math.sqrt(mass * 9.8 / k);
             double qb = Math.sqrt(9.8 * k / mass);
-            //double ta = Math.atan(v/qa)/qb;
+            double ta = Math.atan(v/qa)/qb;
+            double allTime = t+ta;
+            double speed = altitude/allTime;
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("altitude", altitude);
             intent.putExtra("velocity", v);
-            intent.putExtra("time", t);
+            intent.putExtra("speed",speed);
+            intent.putExtra("time", allTime);
             startActivity(intent);
         }
     }

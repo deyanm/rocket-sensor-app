@@ -17,9 +17,9 @@
         android:layout_marginEnd="20dp"
         android:gravity="center"
         android:hint="Enter rocket name"
-        android:textColor="@color/colorAccent"
-        android:textSize="25sp"
         android:textAllCaps="true"
+        android:textColor="@color/colorBlack"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Rocket mass:"
+                    android:text="Rocket mass:(kg)"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
@@ -61,7 +61,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="end"
                     android:gravity="center"
-                    android:hint="Input mass"
+                    android:hint="input mass"
                     android:inputType="numberDecimal"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Impulse:"
+                    android:text="Impulse:(N.s)"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Thrust:"
+                    android:text="Thrust:(N)"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 
