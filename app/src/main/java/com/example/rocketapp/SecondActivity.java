@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.button.MaterialButton;
+//import com.google.android.material.button.MaterialButton;
 
 public class SecondActivity extends AppCompatActivity {
-    private MaterialButton back;
+    private Button back;
     private TextView altitude;
     private TextView velocity;
     private TextView time;
