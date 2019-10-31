@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Area of the rocket:"
+                    android:text="Rocket area:(m2)"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp" />
 

@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
         altitude.setText(String.valueOf(Math.round(alt))+" Meters");
         velocity.setText(String.valueOf(Math.round(vel))+" M/s on vector");
         time.setText(String.valueOf((roundDouble))+" Seconds");
-        speedv.setText(String.valueOf(Math.round(speed)+"M/s"));
+        speedv.setText(String.valueOf(Math.round(speed)+" M/s"));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
