@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,175 +8,223 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/name_edit_text"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="Enter rocket name"
-        android:textAllCaps="true"
-        android:textColor="@color/colorBlack"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mainCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="20dp"
-        android:clipToPadding="true"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:hint="Enter rocket name"
+            android:textColor="@color/colorBlack"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/name_edit_text"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mainCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start|center_vertical"
-            android:orientation="vertical">
+            android:layout_below="@id/spinner"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:clipToPadding="true"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp">
+                android:gravity="start|center_vertical"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv1"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Rocket mass:(kg)"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp">
 
-                <EditText
-                    android:id="@+id/inputMass"
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Rocket mass: (kg)"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/inputMass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:hint="input mass"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_gravity="end"
-                    android:gravity="center"
-                    android:hint="input mass"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center">
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Rocket area: (m2)"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center">
+                    <EditText
+                        android:id="@+id/inputArea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:hint="Input area"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/tv2"
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Rocket area:(m2)"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center">
 
-                <EditText
-                    android:id="@+id/inputArea"
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Impulse: (N.s)"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/inputImpulse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:hint="Input impulse"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:hint="Input area"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:gravity="center">
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Thrust: (N)"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center">
+                    <EditText
+                        android:id="@+id/inputThrust"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:hint="Input thrust"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/tv3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Impulse:(N.s)"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+                </RelativeLayout>
 
-                <EditText
-                    android:id="@+id/inputImpulse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:hint="Input impulse"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+            </LinearLayout>
 
-            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="30dp"
-                android:gravity="center">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mainCard"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="10dp"
+            android:text="Start"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:cornerRadius="10dp"
+            app:elevation="10dp" />
 
-                <TextView
-                    android:id="@+id/tv4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Thrust:(N)"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Save"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:backgroundTint="@color/colorWhite"
+            app:cornerRadius="10dp"
+            app:elevation="10dp" />
 
-                <EditText
-                    android:id="@+id/inputThrust"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:hint="Input thrust"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/save"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Delete"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="18sp"
+            app:backgroundTint="@color/colorWhite"
+            app:cornerRadius="10dp"
+            app:elevation="10dp" />
 
-            </RelativeLayout>
+    </RelativeLayout>
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mainCard"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:padding="10dp"
-        android:text="Start"
-        android:textColor="@color/colorBlack"
-        android:textSize="22sp"
-        app:backgroundTint="@color/colorWhite"
-        app:cornerRadius="10dp"
-        app:elevation="10dp" />
-
-</RelativeLayout>
+</ScrollView>
